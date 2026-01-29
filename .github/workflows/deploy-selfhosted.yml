@@ -1,0 +1,20 @@
+name: Deploy Freqtrade (Self-Hosted)
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pull images
+        run: docker compose -f docker-compose.prod.yml pull
+      - name: Start/Update services
+        run: docker compose -f docker-compose.prod.yml up -d
+      - name: Healthcheck
+        run: |
+          sleep 5
+          curl -sSf http://127.0.0.1:8080/ui_version
