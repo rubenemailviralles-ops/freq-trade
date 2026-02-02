@@ -23,6 +23,7 @@ export default defineConfig({
   define: {
     __COMMIT_HASH__: JSON.stringify(commitHash),
   },
+  base: process.env.BASE_PATH ?? '/',
   plugins: [
     createVuePlugin({
       script: {
