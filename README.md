@@ -198,6 +198,12 @@ in the bug reports.
 
 ### [Pull Requests](https://github.com/freqtrade/freqtrade/pulls)
 
+## Deployment via GitHub Actions
+- Use docker-compose.prod.yml and .env on your server.
+- Option A: Self-hosted runner, run Deploy Freqtrade (Self-Hosted).
+- Option B: SSH deploy, set SSH_HOST, SSH_USER, SSH_KEY secrets and run Deploy Freqtrade (SSH to VPS).
+- Healthcheck uses /ui_version; bind API to 127.0.0.1 and proxy via HTTPS.
+
 Feel like the bot is missing a feature? We welcome your pull requests!
 
 Please read the
