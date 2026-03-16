@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Pull images
         run: docker compose -f docker-compose.prod.yml pull
       - name: Start/Update services
